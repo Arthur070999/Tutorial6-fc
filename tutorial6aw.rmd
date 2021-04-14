@@ -1,0 +1,31 @@
+---
+title: ETC 5513 tutorial 6
+author: Arthur Andersen Widjaya
+date: "`r Sys.Date()`"
+output:
+    bookdown::html_document2 
+keep_md: true
+---
+
+```{r global, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.width = 8, fig.height = 8, fig.alig = "center")
+```
+
+#libraries
+```{r}
+library(tidyverse)
+library(gridExtra)
+```
+
+#Generating data from a normal distribution with mean and variance 1
+```{r}
+x <- seq(1:100)
+y <- rnorm(100) # Generating data form a normal distribution with mean 0 and variance 1
+data <- data.frame(x = x, y = y ) # Creating a data frame
+p1 = ggplot(data, aes(x= x, y = y)) +
+geom_line()
+p2 = ggplot(data, aes(x= x, y = y)) +
+geom_point()
+grid.arrange(p1, p2)
+```
+
